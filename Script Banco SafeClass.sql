@@ -24,7 +24,8 @@ Nome_da_escola varchar(50),
 Codigo_INEP varchar(45),
 Esfera_administrativa varchar(45),
 constraint chkEsferaAdministrativa check (Esfera_Administrativa in("Municipal","Estadual","Federal")),
-CNPJ char(11)
+CNPJ char(11),
+Codigo_Config varchar(45)
 );
 
 create table Endereco (
@@ -41,9 +42,9 @@ constraint fkEnderecoEscola foreign key (FkEscola) references Escola(IdEscola)
 );
 
 create table Contato (
-IdContato int,
+IdContato int AUTO_INCREMENT,
 FkEscola int,
-constraint pkCompostaContato primary key (FkEscola, IdContato),
+constraint pkCompostaContato primary key (IdContato, FkEscola),
 NomeResponsavel varchar(45),
 EmailResponsavel varchar(45),
 TelefoneResponsavel varchar(45),
@@ -80,37 +81,66 @@ constraint FkConvitePermissoes foreign key (FkPermissao) references Permissoes(I
 
 create table Maquina (
 IdMaquina int auto_increment,
+UUID varchar(45),
+Serial_number_bios varchar(45),
+Serial_motherboard varchar(45),
 FkEscola int,
 constraint pkCompostaMaquina primary key(IdMaquina, FkEscola),
 Nome_indetificao varchar(45),
-Serial_number varchar(45),
 constraint FkMaquinaEscola foreign key (FkEscola) references Escola(IdEscola)
 );
 
 create table Componentes_a_monitorar (
 IdComponente int primary key auto_increment,
-Metrica varchar(45),
-Unidade_de_medida varchar(45)
+Metrica varchar(45)
 );
 
 create table Maquina_monitoramento (
+IdMaquinaMonitoramento int auto_increment,
+FkEscola int,
 FkMaquina int,
 FkComponente int,
-constraint pkCompostaMaquina_monitoramento primary key(FkMaquina,FkComponente),
+constraint pkCompostaMaquina_monitoramento primary key(IdMaquinaMonitoramento,FkMaquina,FkComponente,FkEscola),
 Data_config datetime default current_timestamp,
+constraint FkMaquina_monitoramentoEscola foreign key (FkEscola) references Escola(IdEscola),
 constraint FkMaquina_monitoramentoMaquina foreign key (FkMaquina) references Maquina(IdMaquina),
 constraint FkMaquina_monitoramentoComponentes_a_monitorar foreign key (FkComponente) references Componentes_a_monitorar(IdComponente)
 );
 
 create table Leitura (
 IdLeitura int auto_increment,
+FkEscola int,
 FkMaquina int,
 FkComponente int,
 constraint pkCompostaLeitura primary key(IdLeitura, FkMaquina, FkComponente),
 Medida varchar(45),
+constraint FkLeituraEscola foreign key (FkEscola) references Escola(IdEscola),
 constraint fkLeituraMaquina foreign key (FkMaquina) references Maquina_monitoramento(FkMaquina),
 constraint fkLeituraComponente foreign key (FkComponente) references Maquina_monitoramento(FkMaquina)
 );
+
+INSERT INTO Escola 
+(Nome_da_escola, Codigo_INEP, Esfera_administrativa, CNPJ, Codigo_Config)
+VALUES
+("Escola Municipal Aurora", "INEP001", "Municipal", "12345678001", "CFG001"),
+("Colégio Estadual Horizonte", "INEP002", "Estadual", "12345678002", "CFG002"),
+("Escola Federal de Tecnologia", "INEP003", "Federal", "12345678003", "CFG003"),
+("Escola Municipal das Flores", "INEP004", "Municipal", "12345678004", "CFG004"),
+("Colégio Estadual Monte Azul", "INEP005", "Estadual", "12345678005", "CFG005"),
+("Instituto Federal do Saber", "INEP006", "Federal", "12345678006", "CFG006"),
+("Escola Municipal Caminho Novo", "INEP007", "Municipal", "12345678007", "CFG007"),
+("Colégio Estadual Vale Verde", "INEP008", "Estadual", "12345678008", "CFG008"),
+("Escola Federal de Ciências", "INEP009", "Federal", "12345678009", "CFG009"),
+("Escola Municipal Esperança", "INEP010", "Municipal", "12345678010", "CFG010");
+
+INSERT INTO safeclass.Componentes_a_monitorar (Metrica) VALUES
+('Porcentagem de uso da CPU(%)'),
+('Frequência de uso da CPU(GHz)'),
+('Uso da Memória RAM(%)'),
+('Memória RAM Total(GB)'),
+('Uso do disco(GB)'),
+('Espaço restante do disco(GB)'),
+('Espaço do Disco(GB)');
 
 
 
