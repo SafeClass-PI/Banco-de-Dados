@@ -114,14 +114,13 @@ FkMaquina int,
 FkComponente int,
 constraint pkCompostaLeitura primary key(IdLeitura, FkMaquina, FkComponente),
 Medida varchar(45),
+Data_captura datetime default current_timestamp,
 constraint FkLeituraEscola foreign key (FkEscola) references Escola(IdEscola),
-constraint fkLeituraMaquina foreign key (FkMaquina) references Maquina_monitoramento(FkMaquina),
-constraint fkLeituraComponente foreign key (FkComponente) references Maquina_monitoramento(FkMaquina)
+constraint fkLeituraMaquina foreign key (FkMaquina) references Maquina(IdMaquina),
+constraint fkLeituraComponente foreign key (FkComponente) references Componentes_a_monitorar(IdComponente)
 );
 
-INSERT INTO Escola 
-(Nome_da_escola, Codigo_INEP, Esfera_administrativa, CNPJ, Codigo_Config)
-VALUES
+INSERT INTO Escola (Nome_da_escola, Codigo_INEP, Esfera_administrativa, CNPJ, Codigo_Config) VALUES
 ("Escola Municipal Aurora", "INEP001", "Municipal", "12345678001", "CFG001"),
 ("Colégio Estadual Horizonte", "INEP002", "Estadual", "12345678002", "CFG002"),
 ("Escola Federal de Tecnologia", "INEP003", "Federal", "12345678003", "CFG003"),
@@ -142,9 +141,9 @@ INSERT INTO safeclass.Componentes_a_monitorar (Metrica) VALUES
 ('Espaço restante do disco(GB)'),
 ('Espaço do Disco(GB)');
 
-
-
 DROP USER IF EXISTS logpython;
 CREATE USER 'logpython'@'%' IDENTIFIED BY 'L@gpyThon!.04';
 GRANT INSERT,SELECT ON safeClass.* TO 'logpython'@'%';
 FLUSH PRIVILEGES;
+
+
