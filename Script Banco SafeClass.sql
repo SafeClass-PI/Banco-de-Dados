@@ -134,14 +134,14 @@ INSERT INTO Escola (Nome_da_escola, Codigo_INEP, Esfera_administrativa, CNPJ, Co
 ("Escola Federal de Ciências", "INEP009", "Federal", "12345678009", "CFG009"),
 ("Escola Municipal Esperança", "INEP010", "Municipal", "12345678010", "CFG010");
 
-INSERT INTO safeclass.Componentes_a_monitorar (Metrica) VALUES
-('Porcentagem de uso da CPU(%)'),
-('Frequência de uso da CPU(GHz)'),
-('Uso da Memória RAM(%)'),
-('Memória RAM Total(GB)'),
-('Uso do disco(GB)'),
-('Espaço restante do disco(GB)'),
-('Espaço do Disco(GB)');
+INSERT INTO safeclass.Componentes_a_monitorar (Metrica,Unidade_Medida) VALUES
+('Porcentagem de uso da CPU','%'),
+('Frequência de uso da CPU','GHz'),
+('Uso da Memória RAM','%'),
+('Memória RAM Total','GB'),
+('Uso do disco','GB'),
+('Espaço restante do disco','GB'),
+('Espaço do Disco','GB');
 
 DROP USER IF EXISTS logpython;
 CREATE USER 'logpython'@'%' IDENTIFIED BY 'L@gpyThon!.04';
