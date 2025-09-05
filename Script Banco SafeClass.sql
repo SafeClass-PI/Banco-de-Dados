@@ -24,7 +24,7 @@ Nome_da_escola varchar(50),
 Codigo_INEP varchar(45),
 Esfera_administrativa varchar(45),
 constraint chkEsferaAdministrativa check (Esfera_Administrativa in("Municipal","Estadual","Federal")),
-CNPJ char(11),
+CNPJ char(14),
 Codigo_Config varchar(45)
 );
 
@@ -41,13 +41,13 @@ CEP char(8),
 constraint fkEnderecoEscola foreign key (FkEscola) references Escola(IdEscola)
 );
 
-create table Contato (
-IdContato int AUTO_INCREMENT,
+create table Responsavel (
+IdResponsavel int AUTO_INCREMENT,
 FkEscola int,
-constraint pkCompostaContato primary key (IdContato, FkEscola),
-NomeResponsavel varchar(45),
-EmailResponsavel varchar(45),
-TelefoneResponsavel varchar(45),
+constraint pkCompostaResponsavel primary key (IdResponsavel, FkEscola),
+Nome varchar(45),
+Email varchar(45),
+Telefone varchar(45),
 Cargo varchar(45),
 constraint FkContatoEscola 
 foreign key (FkEscola) references Escola(IdEscola)
@@ -74,6 +74,7 @@ FkUsuario int,
 FkPermissao int,
 constraint pkCompostaConvite primary key(IdConvite,FkEscola,FkUsuario,FkPermissao),
 Data_convite datetime default current_timestamp,
+Data_expiracao date,
 constraint FkConviteEscola foreign key (FkEscola) references Escola(IdEscola),
 constraint FkConviteUsuario foreign key (FkUsuario) references Usuario(IdUsuario),
 constraint FkConvitePermissoes foreign key (FkPermissao) references Permissoes(IdPermissao)
@@ -92,7 +93,8 @@ constraint FkMaquinaEscola foreign key (FkEscola) references Escola(IdEscola)
 
 create table Componentes_a_monitorar (
 IdComponente int primary key auto_increment,
-Metrica varchar(45)
+Metrica varchar(45),
+Unidade_Medida varchar(45)
 );
 
 create table Maquina_monitoramento (
