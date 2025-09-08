@@ -41,18 +41,6 @@ CEP char(8),
 constraint fkEnderecoEscola foreign key (FkEscola) references Escola(IdEscola)
 );
 
-create table Responsavel (
-IdResponsavel int AUTO_INCREMENT,
-FkEscola int,
-constraint pkCompostaResponsavel primary key (IdResponsavel, FkEscola),
-Nome varchar(45),
-Email varchar(45),
-Telefone varchar(45),
-Cargo varchar(45),
-constraint FkContatoEscola 
-foreign key (FkEscola) references Escola(IdEscola)
-);
-
 create table Usuario (
 IdUsuario int primary key auto_increment,
 Nome varchar(45),
