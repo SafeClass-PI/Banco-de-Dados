@@ -8,7 +8,7 @@ CREATE TABLE escola (
 
 idEscola INT PRIMARY KEY AUTO_INCREMENT,
 
-nomeDaEscola VARCHAR(45)          NOT NULL,
+nomeDaEscola VARCHAR(100)          NOT NULL,
 
 codigoInep VARCHAR(45)            NOT NULL UNIQUE,
 
