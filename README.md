@@ -17,30 +17,11 @@ Essa repositório é destinado para os scripts e modelagem de Banco de dados
 
 ## ✍ Regras de sintaxe
 
-Para edição do script de banco de dados ultilizar o Camelcase:
+Para edição do script de banco de dados ultilizar o PascalCase:
  ```bash
-    nomeTabela 
-    //Primeira letra minúscula caso haja quebra de texto usar a proxima letra maiúscula
+    NomeTabela 
+    //Primeira letra da palavra é maiúscula
 ```
-Para criação de tabelas seguir o modelo:
- ```bash
-    CREATE TABLE codigoConfiguracao (
-
-    idCodigoConfiguracao INT AUTO_INCREMENT,
-
-    fkEscola INT,
-
-    CONSTRAINT pkCompostaCodigoConfiguracao PRIMARY KEY (idCodigoConfiguracao, fkEscola),
-
-    dataCriacao DATETIME          DEFAULT CURRENT_TIMESTAMP,
-
-    dataExpiracao DATETIME        NOT NULL,
-
-    status VARCHAR(45)            NOT NULL DEFAULT 'Ativo',
-
-    CONSTRAINT chkStatusCodigoConfiguracao CHECK (status IN('Ativo','Expirado')),
-
-    CONSTRAINT fkCodigoConfiguracaoEscola FOREIGN KEY (fkEscola) REFERENCES escola(idEscola)
 
 );
 ```
