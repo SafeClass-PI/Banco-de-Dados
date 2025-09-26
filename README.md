@@ -23,6 +23,4 @@ Para edição do script de banco de dados ultilizar o PascalCase:
     //Primeira letra da palavra é maiúscula
 ```
 
-);
-```
 
