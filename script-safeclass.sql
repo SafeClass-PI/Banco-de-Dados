@@ -1,4 +1,4 @@
-CREATE DATABASE safeclass;
+CREATE DATABASE IF NOT EXISTS safeclass;
 USE safeclass;
 
 CREATE TABLE Endereco (
@@ -40,45 +40,62 @@ CREATE TABLE CodigoAtivacao (
 INSERT INTO CodigoAtivacao (fkEscola, codigo, validade, qtdUsos) VALUES 
 (1, "00j12", "2025-09-11", 10);
 
-CREATE TABLE TipoUsuario (
-	idTipo INT PRIMARY KEY AUTO_INCREMENT, 
-    tipo VARCHAR(45),
+CREATE TABLE Sala (
+	idSala INT PRIMARY KEY AUTO_INCREMENT,
+    fkEscola INT,
+    nome VARCHAR(45),
+    localizacao VARCHAR(45),
+    capacidade INT,
+    FOREIGN KEY (fkEscola)
+    REFERENCES Escola(idEscola)
+);
+
+INSERT INTO Sala (nome, fkEscola, localizacao, capacidade) VALUES
+("Sala de Português", 1, "2° andar, lado direito", 100);
+
+CREATE TABLE Cargo (
+	idCargo INT PRIMARY KEY AUTO_INCREMENT, 
+	nome VARCHAR(45),
     permissao VARCHAR(100)
 );
 
-INSERT INTO TipoUsuario (tipo, permissao) VALUES
-("Administrador", "Ler, escrever, executar e gerenciar usuários e permissões");
+INSERT INTO Cargo (nome, permissao) VALUES
+("Gestor", "Visualizar métricas, visualizar/editar/remover/inserir usuários e máquinas"),
+("Técnico de T.I", "Visualizar métricas, visualizar/editar/remover/inserir máquinas"),
+("Professor", "Visualizar métricas");
 
 CREATE TABLE Usuario (
 	idUsuario INT AUTO_INCREMENT,
-    fkTipo INT,
+    fkCargo INT,
     fkEscola INT,
     nome VARCHAR(45),
     email VARCHAR(45),
     senha VARCHAR(45),
-    PRIMARY KEY (idUsuario, fkTipo),
-    FOREIGN KEY (fkTipo)
-    REFERENCES TipoUsuario(idTipo),
+    status VARCHAR(45),
+    PRIMARY KEY (idUsuario),
+    FOREIGN KEY (fkCargo)
+    REFERENCES Cargo(idCargo),
     FOREIGN KEY (fkEscola)
     REFERENCES Escola(idEscola)
 );
 
-INSERT INTO Usuario (fkTipo, fkEscola, nome, email, senha) VALUES 
+INSERT INTO Usuario (fkCargo, fkEscola, nome, email, senha) VALUES 
 (1, 1, "Ryan Patric", "ryanpina@gmail.com", "urubu100");
 
 CREATE TABLE Maquina (
 	idMaquina INT PRIMARY KEY AUTO_INCREMENT,
-    fkEscola INT,
+    fkSala INT,
     sistemaOperacional VARCHAR(45),
     marca VARCHAR(45),
     modelo VARCHAR(45),
-    hostname VARCHAR(45),
-    FOREIGN KEY (fkEscola)
-    REFERENCES Escola(idEscola)
+    macaddress VARCHAR(45),
+    status VARCHAR(45),
+    FOREIGN KEY (fkSala)
+    REFERENCES Sala(idSala)
 );
 
-Insert into Maquina (fkEscola, sistemaOperacional, marca, modelo, hostname) values
-(1, "Linux", "Dell", "Inspiron 15", "ryanpina");
+Insert into Maquina (fkSala, sistemaOperacional, marca, modelo, macaddress) values
+(1, "Linux", "Dell", "Inspiron 15", "A4:C3:F0:9B:2D:67");
 
 CREATE TABLE Componente (
 	idComponente INT auto_increment,
