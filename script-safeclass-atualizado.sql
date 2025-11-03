@@ -69,7 +69,7 @@ CREATE TABLE Usuario (
 	idUsuario INT AUTO_INCREMENT,
     fkCargo INT,
     fkEscola INT,
-    fkGestor INT NULL,
+    fkGestor INT,
     nome VARCHAR(45),
     email VARCHAR(45),
     senha VARCHAR(45),
