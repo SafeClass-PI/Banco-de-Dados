@@ -118,7 +118,8 @@ CREATE TABLE Componente (
 INSERT INTO Componente (idComponente, fkMaquina, nome, tipo, capacidade) VALUES 
 (default, 1, 'Memória RAM', 'Hardware', '16GB DDR4'), 
 (default, 1, 'Disco Rígido', 'Hardware', '1TB'),
-(default, 1, 'Processador', 'Hardware', 'Intel i7');
+(default, 1, 'Processador', 'Hardware', 'Intel i7'),
+(default, 1, 'Rede', 'Hardware', 'Intelbras');
 
 CREATE TABLE Captura (
     idCaptura INT AUTO_INCREMENT,
@@ -126,6 +127,8 @@ CREATE TABLE Captura (
     gbLivre FLOAT,
     gbEmUso FLOAT,
     porcentagemDeUso FLOAT,
+	velocidadeDownload FLOAT,
+	velocidadeUpload FLOAT,
     dtCaptura TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (idCaptura, fkComponente),
     FOREIGN KEY (fkComponente)
