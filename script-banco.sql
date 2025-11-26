@@ -281,13 +281,13 @@ INSERT INTO Parametro VALUES
 (default, 15, "Atenção", 65.0, 30.01);
 
 INSERT INTO Parametro VALUES
-(default, 19, "Crítico", 14.2, 16),
-(default, 19, "Atenção", 12, 14.1),
-(default, 20, "Crítico", 421, 500),
-(default, 20, "Atenção", 351, 420),
-(default, 21, "Crítico", 85, 100),
-(default, 21, "Atenção", 70, 84),
-(default, 22, "Crítico", 10.0, 0.0),
-(default, 22, "Atenção", 20.0, 10.01),
-(default, 23, "Crítico", 30.0, 0.0),
-(default, 23, "Atenção", 65.0, 30.01);
+(default, 16, "Crítico", 14.2, 16),  -- Componente 16 (RAM - Máquina 4)
+(default, 16, "Atenção", 12, 14.1),
+(default, 17, "Crítico", 421, 500),  -- Componente 17 (Disco - Máquina 4)
+(default, 17, "Atenção", 351, 420),
+(default, 18, "Crítico", 85, 100),   -- Componente 18 (CPU - Máquina 4)
+(default, 18, "Atenção", 70, 84),
+(default, 19, "Crítico", 10.0, 0.0),  -- Componente 19 (Upload - Máquina 4)
+(default, 19, "Atenção", 20.0, 10.01),
+(default, 20, "Crítico", 30.0, 0.0),  -- Componente 20 (Download - Máquina 4)
+(default, 20, "Atenção", 65.0, 30.01);

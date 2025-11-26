@@ -1,5 +1,3 @@
--- --------------- SELECT´S PÁGINA: PÁGINA GERAL ----------------------------------------------------------------
--- Contar quantas máquinas estão ligadas  
 SELECT 
     COUNT(DISTINCT CASE 
         WHEN ultCaptura.ultima >= NOW() - INTERVAL 2 SECOND THEN M.idMaquina
@@ -416,8 +414,5 @@ ON p.fkComponente = c.idComponente
 ORDER BY ca.dtCaptura DESC
 LIMIT 8;
 
--- CRIACAO DE USUARIO
-CREATE USER 'bia'@'%' identified WITH mysql_native_password BY 'urubu100';
-GRANT ALL PRIVILEGES ON safeclass.* TO 'bia'@'%'; 
-FLUSH PRIVILEGES;
 
+select * from componente;
