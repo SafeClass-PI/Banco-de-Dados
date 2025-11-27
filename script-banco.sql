@@ -222,27 +222,29 @@ INSERT INTO Maquina (fkSala, ip, username, senha, sistemaOperacional, marca, mac
 
 INSERT INTO Componente (idComponente, fkMaquina, nome, formatacao, capacidade) VALUES 
 (default, 1, 'RAM', 'gb', '16GB DDR4'), 
-(default, 1, 'Disco', '%', '1TB'),
+(default, 1, 'Disco', 'gb', '1TB'),
 (default, 1, 'CPU', '%', 'Intel i7'),
 (default, 1, 'Upload', 'Mbps', '1000 Mbps'),
 (default, 1, 'Download', 'Mbps', '1000 Mbps'),
+(default, 1, 'Ping', 'Ms', ''),
 (default, 2, 'RAM', 'gb', '16GB DDR4'), 
-(default, 2, 'Disco', '%', '1TB'),
+(default, 2, 'Disco', 'gb', '1TB'),
 (default, 2, 'CPU', '%', 'Intel i7'),
 (default, 2, 'Upload', 'Mbps', '1000 Mbps'),
 (default, 2, 'Download', 'Mbps', '1000 Mbps'),
+(default, 2, 'Ping', 'Ms', ''),
 (default, 3, 'RAM', 'gb', '16GB DDR4'), 
-(default, 3, 'Disco', '%', '1TB'),
+(default, 3, 'Disco', 'gb', '1TB'),
 (default, 3, 'CPU', '%', 'Intel i7'),
 (default, 3, 'Upload', 'Mbps', '1000 Mbps'),
-(default, 3, 'Download', 'Mbps', '1000 Mbps');
-
-INSERT INTO Componente (idComponente, fkMaquina, nome, formatacao, capacidade) VALUES 
+(default, 3, 'Download', 'Mbps', '1000 Mbps'),
+(default, 3, 'Ping', 'Ms', ''),
 (default, 4, 'RAM', 'gb', '16GB DDR4'), 
-(default, 4, 'Disco', '%', '1TB'),
+(default, 4, 'Disco', 'gb', '1TB'),
 (default, 4, 'CPU', '%', 'Intel i7'),
 (default, 4, 'Upload', 'Mbps', '1000 Mbps'),
-(default, 4, 'Download', 'Mbps', '1000 Mbps');
+(default, 4, 'Download', 'Mbps', '1000 Mbps'),
+(default, 4, 'Ping', 'Ms', '');
 
 INSERT INTO Parametro VALUES
 (default, 1, "Crítico", 14.2, 16),
@@ -257,37 +259,38 @@ INSERT INTO Parametro VALUES
 (default, 5, "Atenção", 65.0, 30.01);
 
 INSERT INTO Parametro VALUES
-(default, 6, "Crítico", 14.2, 16),
-(default, 6, "Atenção", 12, 14.1),
-(default, 7, "Crítico", 421, 500),
-(default, 7, "Atenção", 351, 420),
-(default, 8, "Crítico", 85, 100),
-(default, 8, "Atenção", 70, 84),
-(default, 9, "Crítico", 10.0, 0.0),
-(default, 9, "Atenção", 20.0, 10.01),
-(default, 10, "Crítico", 30.0, 0.0),
-(default, 10, "Atenção", 65.0, 30.01);
+(default, 7, "Crítico", 14.2, 16),
+(default, 7, "Atenção", 12, 14.1),
+(default, 8, "Crítico", 421, 500),
+(default, 8, "Atenção", 351, 420),
+(default, 9, "Crítico", 85, 100),
+(default, 9, "Atenção", 70, 84),
+(default, 10, "Crítico", 10.0, 0.0),
+(default, 10, "Atenção", 20.0, 10.01),
+(default, 11, "Crítico", 30.0, 0.0),
+(default, 11, "Atenção", 65.0, 30.01);
 
 INSERT INTO Parametro VALUES
-(default, 11, "Crítico", 14.2, 16),
-(default, 11, "Atenção", 12, 14.1),
-(default, 12, "Crítico", 421, 500),
-(default, 12, "Atenção", 351, 420),
-(default, 13, "Crítico", 85, 100),
-(default, 13, "Atenção", 70, 84),
-(default, 14, "Crítico", 10.0, 0.0),
-(default, 14, "Atenção", 20.0, 10.01),
-(default, 15, "Crítico", 30.0, 0.0),
-(default, 15, "Atenção", 65.0, 30.01);
+(default, 13, "Crítico", 14.2, 16),
+(default, 13, "Atenção", 12, 14.1),
+(default, 14, "Crítico", 421, 500),
+(default, 14, "Atenção", 351, 420),
+(default, 15, "Crítico", 85, 100),
+(default, 15, "Atenção", 70, 84),
+(default, 16, "Crítico", 10.0, 0.0),
+(default, 16, "Atenção", 20.0, 10.01),
+(default, 17, "Crítico", 30.0, 0.0),
+(default, 17, "Atenção", 65.0, 30.01);
 
 INSERT INTO Parametro VALUES
-(default, 16, "Crítico", 14.2, 16),  -- Componente 16 (RAM - Máquina 4)
-(default, 16, "Atenção", 12, 14.1),
-(default, 17, "Crítico", 421, 500),  -- Componente 17 (Disco - Máquina 4)
-(default, 17, "Atenção", 351, 420),
-(default, 18, "Crítico", 85, 100),   -- Componente 18 (CPU - Máquina 4)
-(default, 18, "Atenção", 70, 84),
-(default, 19, "Crítico", 10.0, 0.0),  -- Componente 19 (Upload - Máquina 4)
-(default, 19, "Atenção", 20.0, 10.01),
-(default, 20, "Crítico", 30.0, 0.0),  -- Componente 20 (Download - Máquina 4)
-(default, 20, "Atenção", 65.0, 30.01);
+(default, 19, "Crítico", 14.2, 16), 
+(default, 19, "Atenção", 12, 14.1),
+(default, 20, "Crítico", 421, 500),
+(default, 20, "Atenção", 351, 420),
+(default, 21, "Crítico", 85, 100), 
+(default, 21, "Atenção", 70, 84),
+(default, 22, "Crítico", 10.0, 0.0),  
+(default, 22, "Atenção", 20.0, 10.01),
+(default, 23, "Crítico", 30.0, 0.0), 
+(default, 23, "Atenção", 65.0, 30.01);
+
