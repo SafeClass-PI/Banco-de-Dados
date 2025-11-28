@@ -61,6 +61,7 @@ CREATE TABLE Usuario (
     status VARCHAR(45),
     imagemPerfil VARCHAR(255),
 	last_login DATETIME,
+    online BOOLEAN,
     PRIMARY KEY (idUsuario),
     FOREIGN KEY (fkCargo)
     REFERENCES Cargo(idCargo),
@@ -69,13 +70,13 @@ CREATE TABLE Usuario (
     FOREIGN KEY (fkGestor) REFERENCES Usuario(idUsuario)
 );
 
-
 CREATE TABLE logins (
     id INT AUTO_INCREMENT PRIMARY KEY,
     idUsuario INT,
     dataHoraLogin DATETIME,
     FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario)
 );
+
 CREATE TABLE Maquina (
 	idMaquina INT PRIMARY KEY AUTO_INCREMENT,
     fkSala INT,
@@ -288,9 +289,7 @@ INSERT INTO Parametro VALUES
 (default, 16, "Crítico", 10.0, 0.0),
 (default, 16, "Atenção", 20.0, 10.01),
 (default, 17, "Crítico", 30.0, 0.0),
-(default, 17, "Atenção", 65.0, 30.01);
-
-INSERT INTO Parametro VALUES
+(default, 17, "Atenção", 65.0, 30.01),
 (default, 19, "Crítico", 14.2, 16), 
 (default, 19, "Atenção", 12, 14.1),
 (default, 20, "Crítico", 421, 500),

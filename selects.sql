@@ -414,5 +414,3 @@ ON p.fkComponente = c.idComponente
 ORDER BY ca.dtCaptura DESC
 LIMIT 8;
 
-
-select * from componente;
