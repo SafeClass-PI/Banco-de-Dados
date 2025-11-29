@@ -289,7 +289,9 @@ INSERT INTO Parametro VALUES
 (default, 16, "Crítico", 10.0, 0.0),
 (default, 16, "Atenção", 20.0, 10.01),
 (default, 17, "Crítico", 30.0, 0.0),
-(default, 17, "Atenção", 65.0, 30.01),
+(default, 17, "Atenção", 65.0, 30.01);
+
+INSERT INTO Parametro VALUES
 (default, 19, "Crítico", 14.2, 16), 
 (default, 19, "Atenção", 12, 14.1),
 (default, 20, "Crítico", 421, 500),
@@ -300,3 +302,49 @@ INSERT INTO Parametro VALUES
 (default, 22, "Atenção", 20.0, 10.01),
 (default, 23, "Crítico", 30.0, 0.0), 
 (default, 23, "Atenção", 65.0, 30.01);
+
+-- ------- INSERTS NECESSÁRIOS DASH INDIVIDUAL: RYAN -----------------------
+-- Segunda
+INSERT INTO Captura (fkComponente, registro, dtCaptura) VALUES
+(6, 800, '2025-11-24 10:00:00'),
+(6, 800, '2025-11-24 12:00:00'),
+(6, 800, '2025-11-24 13:00:00'),
+(6, 800, '2025-11-24 14:00:00'),
+(6, 800, '2025-11-24 15:00:00'),
+(6, 800, '2025-11-24 16:00:00');
+
+-- Terça Feira
+INSERT INTO Captura (fkComponente, registro, dtCaptura) VALUES
+(6, 800, '2025-11-25 10:00:00'),
+(6, 800, '2025-11-25 12:00:00'),
+(6, 800, '2025-11-25 13:00:00'),
+(6, 800, '2025-11-25 14:00:00'),
+(6, 800, '2025-11-25 15:00:00'),
+(6, 800, '2025-11-25 16:00:00'),
+(6, 800, '2025-11-25 17:00:00'),
+(6, 800, '2025-11-25 18:00:00'),
+(6, 800, '2025-11-25 19:00:00'),
+(6, 800, '2025-11-25 20:00:00');
+
+-- Quarta Feira
+INSERT INTO Captura (fkComponente, registro, dtCaptura) VALUES
+(6, 800, '2025-11-26 10:00:00'),
+(6, 800, '2025-11-26 12:00:00'),
+(6, 800, '2025-11-26 13:00:00'),
+(6, 800, '2025-11-26 14:00:00');
+
+-- Quinta Feira
+INSERT INTO Captura (fkComponente, registro, dtCaptura) VALUES
+(6, 800, '2025-11-27 10:00:00'),
+(6, 800, '2025-11-27 12:00:00'),
+(6, 800, '2025-11-27 14:00:00');
+
+-- Sexta Feira
+INSERT INTO Captura (fkComponente, registro, dtCaptura) VALUES
+(6, 800, '2025-11-28 10:00:00'),
+(6, 800, '2025-11-28 12:00:00'),
+(6, 800, '2025-11-28 14:00:00'),
+(6, 800, '2025-11-28 15:00:00'),
+(6, 800, '2025-11-28 16:00:00'),
+(6, 800, '2025-11-28 17:00:00'),
+(6, 800, '2025-11-28 18:00:00');
